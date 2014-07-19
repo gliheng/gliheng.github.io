@@ -17,4 +17,4 @@ if [ $# -eq 1 ]
 	  
 	  # Push source and build repos.
 	  git push origin master
-	  git subtree push --prefix=public git@github.com:gliheng/gliheng.github.io.git master --force
+	  git subtree push --prefix=public git@github.com:gliheng/gliheng.github.io.git master
