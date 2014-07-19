@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Recent Content on my new hugo site </title>
+      <title>Recent Content on Amadeus&#39; Blog </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://yourSiteHere/index.xml</link>
+    <link>http://gliheng.github.io/index.xml</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>first</title>
-      <link>http://yoursitehere/blog/first</link>
+      <link>http://gliheng.github.io/blog/first</link>
       <pubDate>Sat, 19 Jul 2014 10:20:25 UTC</pubDate>
       
-      <guid>http://yoursitehere/blog/first</guid>
+      <guid>http://gliheng.github.io/blog/first</guid>
       <description>
 
 &lt;h1 id=&#34;toc_0&#34;&gt;hello&lt;/h1&gt;
