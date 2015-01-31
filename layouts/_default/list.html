@@ -1,0 +1,14 @@
+{{ template "partial/header.html" . }}
+{{ template "partial/menu.html" . }}
+
+<div class="content container">
+	<ul class="posts">
+	{{ range .Data.Pages }}
+	<li>
+	<a href="{{ .Permalink }}"><h4>{{ .Title }}</h4></a><time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
+	</li>
+	{{ end }}
+	</ul>
+</div>
+
+{{ template "partial/footer.html" . }}

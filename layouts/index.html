@@ -1,0 +1,25 @@
+{{ template "partial/header.html" . }}
+{{ template "partial/menu.html" . }}
+
+<div class="container">
+	<div class="jumbotron">
+		<h1>{{ .Title }}</h1>
+		<p>{{ with .Site.Params.Description }} {{. | safeHtml}} {{ else }}An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/gliheng">@gliheng</a>.{{end}}</p>
+	</div>
+
+	<div>
+		{{ range .Data.Pages }}
+		<div class="post">
+			<h1 class="post-title">
+				<a href="{{ .Permalink }}">
+					{{ .Title }}
+				</a>
+			</h1>
+			<span class="post-date">{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
+			<div>{{ .Summary }}</div>
+		</div>
+		{{ end }}
+	</div>
+</div>
+
+{{ template "partial/footer.html" . }}
