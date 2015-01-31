@@ -1,0 +1,22 @@
+baseurl: "http://gliheng.github.io"
+languageCode: "en-us"
+title: "Xavier George"
+
+menu:
+    main:
+      - name: "about hugo"
+        pre: "<i class='ico ico-heart'></i>"
+        weight: -110
+        identifier: "about"
+      - name: "getting-started"
+        pre: "<i class='ico ico-road'></i>"
+        weight: -110
+        url: http://www.bing.com
+
+Taxonomies:
+    series: "series"
+    tag: "tags"
+    category: "categories"
+
+params:
+    Description: "I am a Software Engineer at tencent, China. In addition to tech/geek/programming topics that I like to read and write about, I love classic music, cooking and of course my family."
