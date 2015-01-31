@@ -7,7 +7,17 @@
     <language>en-us</language>
     
     
-    <updated>Sat, 19 Jul 2014 08:47:45 UTC</updated>
+    <updated>Sat, 19 Jul 2014 08:49:27 UTC</updated>
+    
+    <item>
+      <title>Usage</title>
+      <link>http://gliheng.github.io/usage</link>
+      <pubDate>Sat, 19 Jul 2014 08:49:27 UTC</pubDate>
+      
+      <guid>http://gliheng.github.io/usage</guid>
+      <description>&lt;p&gt;Blah, blah!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Hugo</title>
