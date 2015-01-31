@@ -1,6 +1,6 @@
 ---
 date: 2014-07-19T08:47:45Z
-draft: true
+draft: false
 title: "Hugo"
 menu: "main"
 weight: "4"
