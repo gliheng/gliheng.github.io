@@ -1,0 +1,14 @@
+.footer{
+	margin-top:20px;
+	margin-bottom:20px;
+	text-align:center;
+}
+
+strong, em{
+	color:#2A6496;
+	font-weight:bold;
+}
+
+strong {
+	font-size:larger;
+}
