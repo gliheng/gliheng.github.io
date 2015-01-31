@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://gliheng.github.io/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2014-07-19T08:47:45+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://gliheng.github.io/hugo</loc>
+    <lastmod>2014-07-19T08:47:45+00:00</lastmod>
   </url>
   
 </urlset>

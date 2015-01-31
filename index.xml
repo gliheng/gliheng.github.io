@@ -7,7 +7,356 @@
     <language>en-us</language>
     
     
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    <updated>Sat, 19 Jul 2014 08:47:45 UTC</updated>
+    
+    <item>
+      <title>Hugo</title>
+      <link>http://gliheng.github.io/hugo</link>
+      <pubDate>Sat, 19 Jul 2014 08:47:45 UTC</pubDate>
+      
+      <guid>http://gliheng.github.io/hugo</guid>
+      <description>
+
+&lt;h1 id=&#34;toc_0&#34;&gt;快速建站之静态网站生成篇&lt;/h1&gt;
+
+&lt;p&gt;建一个网站是一件十分麻烦的事情，即使对于我们这些互联网专业人士也同样。
+有些时候，我们想用最快的方式建一个网站，把内容放到互联网上。&lt;/p&gt;
+
+&lt;p&gt;CMS系统其实就是为了达到这样的目的。那为什么不用CMS呢？
+使用CMS意味着你需要一台server，还要搭建DB，运行环境等，这些都要花时间。
+就不能更简单一些么？于是，有了静态网站生成器。它用一个最实际的特性 &lt;strong&gt;简单&lt;/strong&gt;，解决了一个建站的最大的实际问题： &lt;strong&gt;懒！&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;使用静态网站生成器，用户一般需要把内容放在不同的文本文件里，格式常见的有markdown，resturectedText等（完全没有db）。然后，通过命令行工具生成网站所有的html文件。这些html文件放到server上即可使用，不需要复杂的后台技术。这意味着随便搞个server几乎都可以部署，发布&lt;strong&gt;简单&lt;/strong&gt; ， 空间流量十分 &lt;strong&gt;便宜&lt;/strong&gt; 。由于github提供了github pages静态页面服务，每个人几乎都可以 &lt;strong&gt;免费&lt;/strong&gt; 搭建自己的站点。&lt;/p&gt;
+
+&lt;p&gt;当然并不是所有的项目都适合静态网站生成器。静态网站生成器一般适合多读少写，以内容为主的项目。如：个人博客，github项目介绍，程序API文档等。
+使用静态网站生成的有名的站点列举一些，如：&lt;a href=&#34;http://www.getbootstrap.com&#34;&gt;http://www.getbootstrap.com&lt;/a&gt;,  &lt;a href=&#34;https://training.github.com/&#34;&gt;https://training.github.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;hugo&lt;/h2&gt;
+
+&lt;p&gt;常用的静态网站生成器很多，Jekyll, Octopress最为流行。还有更多可以参考这里的&lt;a href=&#34;https://www.staticgen.com/&#34;&gt;详细列表&lt;/a&gt;。这里介绍一个优秀的静态网站生成器 &amp;ndash; hugo。&lt;/p&gt;
+
+&lt;p&gt;hugo有以下优点：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;编译后， &lt;em&gt;只有一个二进制文件。没有任何依赖&lt;/em&gt; 。&lt;/p&gt;
+
+&lt;p&gt;Jekyll, Octopress都是ruby搞的，个人而言，无法忍受安装ruby只为搞这个。其他基于python，nodejs的也都要安装解释器、安装依赖库！&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Go语言是编译语言，运行效率高。页面生成速度最快。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Windows, linux, mac兼容&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;易于配置，功能强大&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;修改内容后支持liveReload&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;快速上手&lt;/h2&gt;
+
+&lt;h3 id=&#34;toc_3&#34;&gt;下载&lt;/h3&gt;
+
+&lt;p&gt;先去&lt;a href=&#34;http://hugo.spf13.com/&#34;&gt;hugo&lt;/a&gt;网站上下个包吧，三大平台都打包好的一个文件。&lt;/p&gt;
+
+&lt;p&gt;下完之后麻烦放到PATH路径下面哦。&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_4&#34;&gt;建立网站&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo new site MySite
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;hugo会为你生成以下的文件结构。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;▸ content/      内容
+▸ layouts/      模版
+▸ static/       静态文件js, css
+▸ archetypes/   针对类型的内容配置
+  config.toml   站点的配置文件，也可以用yaml, json格式
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_5&#34;&gt;添加内容&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo new about.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;hugo为你在content目录下生成了一个文件，目前只有这个内容的元数据。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+++
+draft = true
+title = &amp;quot;about&amp;quot;
+date = 2014-05-20T10:04:31Z
++++
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我们写些内容进去吧! markdown内容跟在文件后面就行了。 &lt;a href=&#34;http://daringfireball.net/projects/markdown/basics&#34;&gt;markdown的语法&lt;/a&gt;详见这里。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+++
+draft = true
+title = &amp;quot;about&amp;quot;
+date = 2014-05-20T10:04:31Z
++++
+
+# 标题
+Hello, world!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_6&#34;&gt;安装样式&lt;/h3&gt;
+
+&lt;p&gt;默认的hugo项目是没有样式的，俺们安装一些预设的样式。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone --recursive https://github.com/spf13/hugoThemes themes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_7&#34;&gt;运行测试server&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo server --theme=hyde --buildDrafts
+2 pages created
+0 tags created
+0 categories created
+in 5 ms
+Serving pages from exampleHugoSite/public
+Web Server is available at http://localhost:1313
+Press ctrl+c to stop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;恭喜！你的站点好了。用浏览器打开&lt;a href=&#34;http://localhost:1313&#34;&gt;http://localhost:1313&lt;/a&gt; 看下吧&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_8&#34;&gt;进阶&lt;/h2&gt;
+
+&lt;p&gt;现在制作的hugo站点是默认的样式，要在实际项目中用，学习自定义模版是必须的。&lt;/p&gt;
+
+&lt;p&gt;hugo生成页面的时候有以下一些流程:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;copy静态资源到public文件夹，包括：
+copy theme/static/* 到 public/下; copy static/* 到 public/下&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;遍历所有content/下所有文件
+获取文件头信息，并把正文markdown转换为html&lt;/p&gt;
+
+&lt;p&gt;注：rst格式使用rst2html.py转换rst，使用rst需要安装python docutils&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;渲染生成每个页面对应的正文页面，生成文件夹对应的列表页面，生成分类页面，生成主页&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;每个静态页面生成的时候需要两个东西，一个模版，一个结构体数据。&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_9&#34;&gt;模版选择&lt;/h3&gt;
+
+&lt;p&gt;hugo会从layouts文件夹下一系列路径寻找第一个文件作为模版，这样方便对不同的页面模版进行定制。&lt;/p&gt;
+
+&lt;p&gt;例如：正文渲染会依次从以下一些位置寻找模版。首先是layouts文件夹，然后再在themes下面的layouts文件夹寻找。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/layouts/&lt;code&gt;TYPE&lt;/code&gt; or &lt;code&gt;SECTION&lt;/code&gt;/&lt;code&gt;LAYOUT&lt;/code&gt;.html&lt;/li&gt;
+&lt;li&gt;/layouts/&lt;code&gt;TYPE&lt;/code&gt; or &lt;code&gt;SECTION&lt;/code&gt;/single.html&lt;/li&gt;
+&lt;li&gt;/layouts/_default/single.html&lt;/li&gt;
+&lt;li&gt;/themes/&lt;code&gt;THEME&lt;/code&gt;/layouts/&lt;code&gt;TYPE&lt;/code&gt; or &lt;code&gt;SECTION&lt;/code&gt;/&lt;code&gt;LAYOUT&lt;/code&gt;.html&lt;/li&gt;
+&lt;li&gt;/themes/&lt;code&gt;THEME&lt;/code&gt;/layouts/&lt;code&gt;TYPE&lt;/code&gt; or &lt;code&gt;SECTION&lt;/code&gt;/single.html&lt;/li&gt;
+&lt;li&gt;/themes/&lt;code&gt;THEME&lt;/code&gt;/layouts/_default/single.html&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我们最常使用的模版是以下三个：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;正文页：/layouts/_default/single.html&lt;/li&gt;
+&lt;li&gt;列表页：/layouts/_default/list.html&lt;/li&gt;
+&lt;li&gt;主页：/layouts/index.html&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;toc_10&#34;&gt;正文&lt;/h4&gt;
+
+&lt;p&gt;hugo使用的模版语言是go自带的template系统。详细的语法可以参考&lt;a href=&#34;http://hugo.spf13.com/templates/go-templates&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;正文渲染使用hugolib/page.go中的Page结构体。Page结构体主要的属性包括：
+- Title标题
+- Summary摘要
+- Content正文
+- TableOfContents目录
+- &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;有兴趣的同学可以看下这个文件。&lt;/p&gt;
+
+&lt;p&gt;例如：一个很简单的正文片段如下。我们把文件放到/layouts/_default/single.html。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{{ template &amp;quot;partial/header.html&amp;quot; . }}
+{{ template &amp;quot;partial/menu.html&amp;quot; . }}
+
+&amp;lt;div class=&amp;quot;content container&amp;quot;&amp;gt;
+&amp;lt;div class=&amp;quot;post&amp;quot;&amp;gt;
+    &amp;lt;h1&amp;gt;{{ .Title }}&amp;lt;/h1&amp;gt;
+        &amp;lt;span class=&amp;quot;post-date&amp;quot;&amp;gt;{{ .Date.Format &amp;quot;Mon, Jan 2, 2006&amp;quot; }}&amp;lt;/span&amp;gt;
+        {{ .Content }}
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+{{ template &amp;quot;partial/footer.html&amp;quot; . }}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注意，这里使用template语句把常用的模块分散，如页头，页尾，菜单。&lt;/p&gt;
+
+&lt;h4 id=&#34;toc_11&#34;&gt;列表页&lt;/h4&gt;
+
+&lt;p&gt;对于每个文件夹，hugo会生成列表页，显示下面的所有内容的列表。列表页使用 &lt;code&gt;hugolib/node.go&lt;/code&gt; 文件中定义的Node结构体渲染页面。&lt;/p&gt;
+
+&lt;p&gt;该结构体有两个属性：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Site代表站点配置信息，是位于hugolib/site.go中定义的SiteInfo结构体。&lt;/li&gt;
+&lt;li&gt;Data是节点数据，其Pages属性表示子页面的列表。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如下的/layouts/_default/list.html文件对Data.Pages进行了循环，渲染了该文件夹中所有的文件。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{{ template &amp;quot;partial/header.html&amp;quot; . }}
+{{ template &amp;quot;partial/menu.html&amp;quot; . }}
+
+&amp;lt;div class=&amp;quot;content container&amp;quot;&amp;gt;
+    &amp;lt;ul class=&amp;quot;posts&amp;quot;&amp;gt;
+    {{ range .Data.Pages }}
+    &amp;lt;li&amp;gt;
+    &amp;lt;a href=&amp;quot;{{ .Permalink }}&amp;quot;&amp;gt;&amp;lt;h4&amp;gt;{{ .Title }}&amp;lt;/h4&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;time class=&amp;quot;pull-right post-list&amp;quot;&amp;gt;{{ .Date.Format &amp;quot;Mon, Jan 2, 2006&amp;quot; }}&amp;lt;/time&amp;gt;
+    &amp;lt;/li&amp;gt;
+    {{ end }}
+    &amp;lt;/ul&amp;gt;
+&amp;lt;/div&amp;gt;
+
+{{ template &amp;quot;partial/footer.html&amp;quot; . }}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;toc_12&#34;&gt;主页&lt;/h4&gt;
+
+&lt;p&gt;主页其实也是一个列表文件。渲染数据和列表页结构相同，都是Node结构体。只是模版优先选择&lt;code&gt;/layouts/index.html&lt;/code&gt;文件
+这里就不再赘述了。&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_13&#34;&gt;分类&lt;/h3&gt;
+
+&lt;p&gt;hugo除了正文，列表，主页三种页面。还支持分类页面tags, categories。&lt;/p&gt;
+
+&lt;p&gt;使用时简单的在正文元数据定义下ok。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tags:
+    - &amp;quot;javascript&amp;quot;
+    - &amp;quot;python&amp;quot;
+    - &amp;quot;go&amp;quot;
+categories:
+    - &amp;quot;hugo&amp;quot;
+    - &amp;quot;fun&amp;quot;
+    - &amp;quot;test&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_14&#34;&gt;代码高亮&lt;/h3&gt;
+
+&lt;p&gt;码农必备！hugo使用的python的pygment进行语法高亮的。需要先安装python pygment。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{{ % highlight javascript %}}
+var b = function () {
+    console.log(123);
+};
+{{ % /highlight %}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这语法时hugo的shortcode，还可以搞其他的东西，相当于一个内容插件。&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_15&#34;&gt;菜单&lt;/h3&gt;
+
+&lt;p&gt;hugo的菜单系统支持菜单有两种使用方式：&lt;/p&gt;
+
+&lt;h4 id=&#34;toc_16&#34;&gt;1a. 在站点配置文件中声明菜单。&lt;/h4&gt;
+
+&lt;p&gt;如下的yaml文件定义了一个main菜单，和两个菜单条目。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;menu:
+    main:
+      - name: &amp;quot;about hugo&amp;quot;
+        pre: &amp;quot;&amp;lt;i class=&#39;ico ico-heart&#39;&amp;gt;&amp;lt;/i&amp;gt;&amp;quot;
+        weight: -110
+        identifier: &amp;quot;about&amp;quot;
+      - name: &amp;quot;getting-started&amp;quot;
+        pre: &amp;quot;&amp;lt;i class=&#39;ico ico-road&#39;&amp;gt;&amp;lt;/i&amp;gt;&amp;quot;
+        weight: -110
+        url: http://www.bing.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;toc_17&#34;&gt;1b. 在正文的元数据中声明内容所属的菜单。&lt;/h4&gt;
+
+&lt;p&gt;加入到单个菜单&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+menu = &amp;quot;main&amp;quot;
+---
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;加入到多个菜单&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+menu: [&amp;quot;main&amp;quot;, &amp;quot;footer&amp;quot;]
+---
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;菜单定义好了以后就可以在模版中通过循环显示菜单列表。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{{ $currentNode := . }}
+&amp;lt;ul class=&amp;quot;nav navbar-nav&amp;quot;&amp;gt;
+{{ range .Site.Menus.main }}
+&amp;lt;li {{if or ($currentNode.HasMenuCurrent &amp;quot;main&amp;quot; .) ($currentNode.IsMenuCurrent &amp;quot;main&amp;quot; .) }}class=&amp;quot;active&amp;quot;{{end}}&amp;gt;&amp;lt;a href=&amp;quot;{{.Url}}&amp;quot;&amp;gt;{{ .Name }}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+{{end}}
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_18&#34;&gt;发布到Github Pages&lt;/h3&gt;
+
+&lt;p&gt;使用静态网站生成器一个很重要的优点是可以免费部署在github!
+接下来我们就来看下。&lt;/p&gt;
+
+&lt;p&gt;Github pages一般有两种使用。一个是项目的主页，另一种是个人/机构的主页，这种一个用户只能建一个。
+作为项目的主页，项目的版本库需要一个命名为gh-pages的分支。这个分支是网站根目录。
+作为个人主页，个人需要有一个以自己的名字命名的仓库，其master分支是跟目录。例如：用户名gliheng,仓库gliheng.github.io将是主页的仓库。&lt;/p&gt;
+
+&lt;p&gt;这样我们只需要把编译出来的静态文件（/public文件夹）丢到某个仓库的某个分支即可。&lt;/p&gt;
+
+&lt;p&gt;我们来试试个人博客。&lt;/p&gt;
+
+&lt;h4 id=&#34;toc_19&#34;&gt;先去github点Create Repository建立新点仓库xxx。&lt;/h4&gt;
+
+&lt;p&gt;记得勾上&lt;code&gt;Initialize this repository with a README&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;toc_20&#34;&gt;回到本地&lt;/h4&gt;
+
+&lt;p&gt;把本地的source分支推到remote的source分支。
+把public文件夹的文件推到remote的master分支。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo new site xxx
+cd xxx
+
+git init
+git checkout --orphan source
+
+git add .
+# 把代码提交到source分支吧
+git commit -m &amp;quot;Initial submit&amp;quot;
+
+git remote add origin git@github.com:gliheng/xxx.git
+git pull
+
+# 建立本地master分支
+git branch master
+# 把master作为source分支的子目录了
+git subtree add --prefix public git@github.com:gliheng/xxx.git master --squash
+
+# 添加一个文章，编辑一下
+hugo new blog/first.md
+# 生成public下的站点
+hugo
+
+# 把source分支推到github的source分支
+git push origin source
+# 把public文件夹推到github的master分支
+git subtree push --prefix=public git@github.com:gliheng/xxx.git master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;搞定！访问yourname.github.io看下吧。&lt;/p&gt;
+</description>
+    </item>
     
   </channel>
 </rss>
